@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 5555
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: hello-service
+    api-b:
+          path: /api-b/**
+          serviceId: feign-consumer
+#设置路由对于敏感头的过滤，比如会过滤掉cookie信息
+#  sensitive-headers: 设置全局参数为空来覆盖敏感头信息的默认值
+# zuul.routes.<router>.customSensitiveHeaders=true--开启对指定路径自定义敏感头
+# zuul.routes.<router>.sensitiveHeaders=true--对指定路由的敏感头设置为空
+# zuul.addHostHeader=true----标识网关在进行路由转发前为请求设置host头信息，以标识最初的服务端请求地址
+#zuul.retryable=false-----关闭路由重试机制
+#zuul.routes.<route>.retryable=false-----指定路由关闭重试机制
+#zuul.<simpleClassName（过滤器类名）>.<filterType（过滤器类型）>.disable=true----禁用指定的过滤器；如：zuul.AccessFilter.pre.disable=true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
