@@ -12,8 +12,8 @@ spring:
       server:
         git:
           uri: https://github.com/man-z/spring-config-server.git
-          username: zhangh1117@163.com
-          password: asd456123
+          username:
+          password:
           search-paths: spring_could_in_action/config-repo
 server:
   port: 7001
