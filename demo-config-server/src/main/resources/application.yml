@@ -1,0 +1,21 @@
+#http://localhost:7001/application(thankspace,文件名称的前缀[应用名])/test(profile，文件名称的后缀[环境名])/config-label-test(labe，分支名称，默认master[分支名])
+#URI指定配置中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/man-z/spring-config-server.git
+          username: zhangh1117@163.com
+          password: asd456123
+          search-paths: spring_could_in_action/config-repo
+server:
+  port: 7001
+
+#服务化配置中心
